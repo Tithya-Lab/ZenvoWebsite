@@ -1,0 +1,826 @@
+
+:root {
+  --background-color: rgba(0, 0, 0, 1);
+  --font-family-gt-walsheim: GT Walsheim, "Times New Roman", Times, serif;
+  --font-family-georgia: Georgia, "Times New Roman", Times, serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-family-georgiat-family-gt-walsheim);
+  color: rgb(255, 255, 255);
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: block;
+}
+
+/* Start Navbar */
+.nav-desktop-menu {
+  position: sticky;
+  background-color: black;
+  display: flex;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 0px;
+  justify-content: space-between;
+}
+
+.nav-mobile-menu {
+  display: none;
+}
+
+.menu-toggle,
+.menu-btn {
+  display: none;
+}
+
+.nav-desktop-menu ul {
+  list-style-type: none;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 0px 16px;
+}
+
+.nav-desktop-menu > img {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-desktop-menu > ul > li > a {
+  text-decoration: none;
+  color: white;
+  font-family: var(--font-family-gt-walsheim);
+  font-size: var(--text-base);
+  font-weight: 100;
+}
+/* End Navbar */
+
+/* Start Banner */
+.banner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: slideInUp 500ms forwards;
+}
+
+.banner > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner > .shop-now-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  width: 280px;
+  justify-content: center;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  height: 54px;
+  position: absolute;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.banner > .shop-now-btn > p {
+  transform: translateX(-24px);
+  transition: all 0.5s;
+}
+
+.banner > .shop-now-btn > svg {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.banner > .shop-now-btn:hover > svg {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.banner > .shop-now-btn:hover > p {
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.banner > .shop-now-btn:hover {
+  border: 1px solid white;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.5ms;
+}
+/* End Banner */
+
+/* Start New Arrival */
+.new-arrival {
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation-timeline: view();
+  animation-name: slideInUp;
+  animation-duration: 1ms; /* Required in Firefox */
+}
+
+.new-arrival > h1 {
+  font-family: var(--font-family-georgia);
+  font-weight: 100;
+  font-size: 52px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.new-arrival > h1 > span {
+  font-family: var(--font-family-georgia);
+  font-weight: 900;
+  font-style: italic;
+}
+
+.new-arrival > p {
+  font-weight: 100;
+  font-size: var(--text-base);
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.new-arrival-list {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  margin-left: max(calc((100% - 1280px) / 2), 0px);
+  padding-right: max(calc((100% - 1280px)), 0px);
+  gap: 32px;
+  margin-bottom: 80px;
+
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.new-arrival-list::-webkit-scrollbar {
+  display: none;
+}
+
+.new-arrival-item {
+  max-width: 320px;
+}
+
+.new-arrival-item > .new-arrival-img-wrapper {
+  max-width: 320px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  width: 320px;
+  height: 426px;
+}
+
+.new-arrival-item > .new-arrival-img-wrapper > img {
+  width: 100%;
+  object-fit: contain;
+  transition: all 0.5s;
+}
+
+.new-arrival-item > .new-arrival-img-wrapper:hover > img {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.new-arrival-item > h2 {
+  font-family: var(--font-family-georgia);
+  font-size: var(--text-4xl);
+  line-height: var(--line-height-4xl);
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+
+.new-arrival-item > h2 > span {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.new-arrival-item > p {
+  font-size: var(--text-base);
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+
+.new-arrival-item > .view-time-piece-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  overflow: hidden;
+  height: 54px;
+  font-size: var(--text-base);
+}
+
+/* End New Arrival */
+
+/* Start Show Case */
+.showcase {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.showcase-item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation-timeline: view();
+  animation-name: slideInUp;
+  animation-duration: 1ms; /* Required in Firefox */
+}
+
+.showcase-item > picture > .showcase-img {
+  width: 100%;
+  max-width: 1280px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showcase > :nth-child(odd) > .showcase-item-info {
+  color: white;
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.showcase > :nth-child(even) > .showcase-item-info {
+  color: white;
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.showcase-item-info > h1 {
+  font-style: italic;
+  font-family: var(--font-family-georgia);
+  margin-bottom: 16px;
+}
+
+.showcase-item-info > h1 > span {
+  font-style: normal;
+}
+
+.showcase-item-info > p {
+  font-size: var(--text-base);
+  line-height: var(--line-height-base);
+  max-width: 480px;
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+
+.showcase-item-info > .see-more-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  width: 280px;
+  justify-content: center;
+  background-color: white;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  height: 54px;
+}
+
+.showcase-item-info > .see-more-btn > p {
+  transform: translateX(-24px);
+  transition: all 0.5s;
+}
+
+.showcase-item-info > .see-more-btn > svg {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.showcase-item-info > .see-more-btn:hover > svg {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.showcase-item-info > .see-more-btn:hover > p {
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.showcase-item-info > .see-more-btn:hover {
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.5ms;
+}
+
+/* End Show Case */
+
+/* Start Show Case Collab */
+.showcase-collab {
+  display: flex;
+  padding-top: 100px;
+}
+
+.showcase-collab > img {
+  width: 50%;
+  opacity: 0;
+  transform: translateY(10px);
+  animation-timeline: view();
+  animation-name: slideInUp;
+  animation-duration: 1ms; /* Required in Firefox */
+}
+
+.showcase-collab > .showcase-collab-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 40px;
+  justify-content: center;
+}
+
+.showcase-collab-info > img {
+  max-width: 340px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.showcase-collab-info > .showcase-collab-title {
+  font-family: var(--font-family-georgia);
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+
+.showcase-collab-info > .showcase-collab-title > span {
+  font-weight: 900;
+  font-style: italic;
+}
+
+.showcase-collab-info > .showcase-collab-description {
+  font-weight: 100;
+  margin-bottom: 16px;
+  font-size: var(--text-base);
+  line-height: var(--line-height-base);
+}
+
+.showcase-collab-info > .see-more-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  width: 280px;
+  justify-content: center;
+  background-color: white;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  height: 54px;
+}
+
+.showcase-collab-info > .see-more-btn > p {
+  transform: translateX(-24px);
+  transition: all 0.5s;
+}
+
+.showcase-collab-info > .see-more-btn > svg {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.showcase-collab-info > .see-more-btn:hover > svg {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.showcase-collab-info > .see-more-btn:hover > p {
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.showcase-collab-info > .see-more-btn:hover {
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.5ms;
+}
+/* End Show Case Collab */
+
+/* Start Show Case Glass */
+.showcase-sunglasses {
+  display: flex;
+  margin-top: 40px;
+  max-width: 1280px;
+  flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  align-items: center;
+  gap: 40px;
+  padding-left: 16px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation-timeline: view();
+  animation-name: slideInUp;
+  animation-duration: 1ms; /* Required in Firefox */
+}
+
+.showcase-sunglasses-item-info {
+  max-width: 400px;
+}
+
+.showcase-sunglasses-item-info > h1 {
+  font-family: var(--font-family-georgia);
+  font-weight: 100;
+  margin-bottom: 16px;
+}
+
+.showcase-sunglasses-item-info > h1 > span {
+  font-style: italic;
+  font-family: var(--font-family-georgia);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.showcase-sunglasses-item-info > .showcase-sunglasses-item-description {
+  font-weight: 100;
+  margin-bottom: 16px;
+  font-size: var(--text-base);
+  line-height: var(--line-height-base);
+}
+
+.showcase-sunglasses-item-info > .see-more-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  width: 280px;
+  justify-content: center;
+  background-color: white;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  height: 54px;
+}
+
+.showcase-sunglasses-item-info > .see-more-btn > p {
+  transform: translateX(-24px);
+  transition: all 0.5s;
+}
+
+.showcase-sunglasses-item-info > .see-more-btn > svg {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.showcase-sunglasses-item-info > .see-more-btn:hover > svg {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.showcase-sunglasses-item-info > .see-more-btn:hover > p {
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.showcase-sunglasses-item-info > .see-more-btn:hover {
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.5ms;
+}
+
+.showcase-sunglasses-items {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  overflow-x: scroll;
+  padding-right: 40px;
+
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.showcase-sunglasses-items::-webkit-scrollbar {
+  display: none;
+}
+
+.showcase-sunglasses-items > img {
+  max-width: 260px;
+}
+/* End Show Case Glass */
+
+/* Start Our Promise */
+.our-promise {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 16px;
+}
+
+.our-promise > h1 {
+  font-family: var(--font-family-georgia);
+  font-size: var(--text-5xl);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.our-promise > h1 > span {
+  font-weight: 100;
+  font-style: normal;
+}
+
+.our-promise-items {
+  display: flex;
+}
+
+.our-promise-items > .our-promise-item {
+  flex: 1;
+  padding: 28px 16px;
+}
+
+.our-promise-items > .our-promise-item > img {
+  height: 45px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.our-promise-items > .our-promise-item > h2 {
+  font-family: var(--font-family-georgia);
+  font-size: var(--text-3xl);
+  margin-bottom: 24px;
+  font-weight: 100;
+}
+
+.our-promise-items > .our-promise-item > p {
+  font-weight: 100;
+  font-size: var(--text-base);
+  line-height: var(--line-height-base);
+}
+
+.our-promise-item a {
+  color: white;
+}
+/* End Our Promise */
+
+/* Start Gallery */
+.gallery {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.gallery > .gallery-item {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation-timeline: view();
+  animation-name: slideInUp;
+  animation-duration: 1ms; /* Required in Firefox */
+}
+
+.gallery > :nth-child(2) > .gallery-img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.gallery > :nth-child(1) > .gallery-img-wrapper,
+.gallery > :nth-child(3) > .gallery-img-wrapper {
+  width: 50%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.gallery > .gallery-item > .gallery-img-wrapper > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: all 0.5s;
+  z-index: -1;
+}
+
+.gallery-item > .gallery-img-wrapper:hover > img {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.gallery-img-overlay {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.5s;
+}
+
+.gallery-item > .gallery-img-wrapper:hover > .gallery-img-overlay {
+  opacity: 1;
+  transition: all 0.5s;
+}
+/* End Gallery */
+
+/* Start Get Latest News */
+.get-latest-news {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.get-latest-news > h1 {
+  font-family: var(--font-family-georgia);
+  font-weight: 100;
+  font-size: 52px;
+  margin-bottom: 16px;
+}
+
+.get-latest-news > h1 > span {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.get-latest-news > p {
+  font-size: var(--text-base);
+  font-weight: 100;
+  margin-bottom: 40px;
+}
+
+.get-latest-news > form {
+  display: flex;
+  flex: 1;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.get-latest-news > form > input[type="text"] {
+  font-family: var(--font-family-gt-walsheim);
+  font-weight: 100;
+  height: 54px;
+  border: 1px solid white;
+  outline: none;
+  background-color: transparent;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: var(--text-base);
+  flex: 3;
+}
+
+.get-latest-news > form > button[type="submit"] {
+  flex: 1;
+  background-color: white;
+  height: 54px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 1px solid white;
+  font-family: var(--font-family-gt-walsheim);
+  font-size: var(--text-sm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  transition: all 0.5s;
+}
+
+.get-latest-news > form > button[type="submit"] > p {
+  transform: translateX(-24px);
+  transition: all 0.5s;
+}
+
+.get-latest-news > form > button[type="submit"] > svg {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.get-latest-news > form > button[type="submit"]:hover > svg {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.get-latest-news > form > button[type="submit"]:hover > p {
+  transform: translateX(0px);
+  transition: all 0.5s;
+}
+
+.get-latest-news > form > button[type="submit"]:hover {
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.5ms;
+}
+
+/* End Get Latest News */
+
+/* Start Foooter */
+footer {
+  display: flex;
+  max-width: 1280px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  flex: 1;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+footer > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+footer > div > a.email,
+footer > div > a.phone {
+  text-decoration: underline;
+}
+
+footer > div > .footer-item-header-wrapper {
+  height: 40px;
+}
+
+footer > div > .footer-item-header-wrapper > .zinvo-logo {
+  max-width: 125px;
+  object-fit: contain;
+}
+
+footer > div > .footer-item-header-wrapper > h5 {
+  font-family: var(--font-family-georgia);
+  font-weight: 200;
+  font-size: var(--text-lg);
+  margin-bottom: 16px;
+}
+
+footer > div > a {
+  font-family: var(--font-family-gt-walsheim);
+  font-size: var(--text-base);
+  font-weight: 100;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 16px;
+}
+
+/* End Foooter */
+
+@keyframes slideInUp {
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
